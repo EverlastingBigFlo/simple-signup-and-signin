@@ -1,3 +1,6 @@
+@extends('layouts/layouts')
+
+
 <!-- Section: Design Block -->
 <section class="text-center">
     <!-- Background image -->
@@ -85,3 +88,5 @@
     </div>
   </section>
   <!-- Section: Design Block -->
+
+
