@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class indexController extends Controller
 {
-    public function signin()
+    public function signup()
     {
         return view('signup');
     }
