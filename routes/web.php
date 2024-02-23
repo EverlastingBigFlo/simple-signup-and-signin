@@ -21,4 +21,7 @@ Route::get('/', function () {
 // get my signup page display
 Route::get('/signup', [indexController::class, 'signup'])->name('signup');
 
+// send signup to database
 Route::post('/signup', [indexController::class, 'signupCommand'])->name('signupCommand');
+
+// get my login to display
