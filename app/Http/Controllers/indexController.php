@@ -22,8 +22,8 @@ class indexController extends Controller
             'password'  => 'required|confirmed|min:6',
             'password_confirmation'  => 'required',
         ]);
-        // get my data sent from form submitted to my database
 
+        // get my data sent from form submitted to my database
        User::create($request->all());
        return redirect()->back()->with('message','Your account have been created successful');
     }
