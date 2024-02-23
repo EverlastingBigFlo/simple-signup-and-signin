@@ -26,3 +26,6 @@ Route::post('/signup', [indexController::class, 'signupCommand'])->name('signupC
 
 // get my login to display
 Route::get('/login', [indexController::class, 'login'])->name('log');
+
+//get my login command here
+Route::post('/login', [indexController::class, 'loginCommand'])->name('loginCommand');

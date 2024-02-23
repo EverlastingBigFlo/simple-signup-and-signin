@@ -34,4 +34,14 @@ class indexController extends Controller
     {
         return view('login');
     }
+
+    // get validate and send to database
+    public function loginCommand(Request $request)
+    {
+        // validate my login info
+        $request->validate([
+            'email' => 'required',
+            'password' => 'required'
+        ]);
+    }
 }
