@@ -60,7 +60,7 @@
                             <input
                                 class="w-full px-8 py-4 my-5 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
                                 type="name" placeholder="Name" value="{{ old('name') }}" />
-                            <small style="color: red">
+                            <small style="color: red font-sieze:">
                                 @error('name')
                                     {{ $message }}
                                 @enderror
@@ -68,7 +68,7 @@
                             <input
                                 class="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
                                 type="email" placeholder="Email" value="{{ old('email') }}" />
-                            <small style="color: red">
+                            <small style="color: red font-sieze:">
                                 @error('email')
                                     {{ $message }}
                                 @enderror
@@ -76,15 +76,15 @@
                             <input
                                 class="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5"
                                 type="password" placeholder="Password" value="{{ old('password') }}" />
-                            <small style="color: red">
+                            <small style="color: red font-sieze:">
                                 @error('password')
                                     {{ $message }}
                                 @enderror
                                 <input
                                 class="w-full px-8 py-4 my-5 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
-                                type="password_confirmaltion" placeholder="Confirm Password" value="{{ old('password_confirmaltion') }}" />
+                                type="password_confirmation" placeholder="Confirm Password" value="{{ old('password_confirmation') }}" />
                             <small style="color: red">
-                                @error('password_confirmaltion')
+                                @error('password_confirmation')
                                     {{ $message }}
                                 @enderror
                             </small>

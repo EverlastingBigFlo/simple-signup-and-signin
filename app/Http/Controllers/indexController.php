@@ -19,7 +19,7 @@ class indexController extends Controller
             'name'=>'required',
             'email'=>'required|email|unique:user',
             'password'  => 'required|confirmed|min:6',
-            'password-confirmation'  => 'required',
+            'password_confirmation'  => 'required',
         ]);
     }
 }
