@@ -17,10 +17,10 @@ class indexController extends Controller
     {
         // validating my request
         $request->validate([
-            'name'=>'required',
-            'email'=>'required|email|unique:user',
-            'password'  => 'required|confirmed|min:6',
-            'password_confirmation'  => 'required',
+            'name' => 'required',
+            'email' => 'required|email|unique:user',
+            'password' => 'required|confirmed|min:6',
+            'password_confirmation' => 'required',
         ]);
 
         // get my data sent from form submitted to my database
