@@ -3,8 +3,7 @@
 
 <div class="flex min-h-screen items-center justify-center">
     <div class="relative h-[800px] w-[400px] overflow-hidden rounded-3xl">
-        <div class="h-full w-full bg-[100%]"
-            style="background-image: url('https://img.freepik.com/free-vector/technology-background_23-2148119855.jpg?w=2000&t=st=1689179372~exp=1689179972~hmac=8a67af351443807b8728d4c2e1b067ba4a54be7b07c038cac30bdb71291062c1');">
+        <div class="h-full w-full bg-[100%] bg-black">
         </div>
         <div class="absolute bottom-0 flex h-3/4 w-full flex-col rounded-t-3xl bg-white bg-opacity-20 shadow">
             <form class="mt-10 space-y-8 px-10 py-10 text-center">
