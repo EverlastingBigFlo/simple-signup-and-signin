@@ -31,7 +31,7 @@
                                 Sign Up with Google
                             </span>
                         </button>
-                        <small class=" text-green-600">
+                        <small class=" text-green-600   ">
                             {{-- where to route to when the account is being registered to the database --}}
                             @if (session()->has('message'))
                                 <h1>{{ session()->get('message') }}</h1>
