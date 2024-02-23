@@ -16,7 +16,7 @@ class indexController extends Controller
     {
         $request->validate([
             'email'=>'required|email|unique:user',
-            'password'  => 'required'
+            'password'  => 'required|min:6'
         ]);
     }
 }
