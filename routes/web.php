@@ -18,4 +18,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// get my signup page display
 Route::get('/signup', [indexController::class, 'signup'])->name('signup');
+
+Route::post('/signup', [indexController::class, 'signupCommand'])->name('signupCommand');

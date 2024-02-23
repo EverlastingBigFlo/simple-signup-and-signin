@@ -10,4 +10,13 @@ class indexController extends Controller
     {
         return view('signup');
     }
+
+    // to acces my form request 
+    public function signupCommand(Request $request)
+    {
+        $request->validate([
+            'email'=>'required|email|unique:user',
+            'password'  => 'required'
+        ]);
+    }
 }
