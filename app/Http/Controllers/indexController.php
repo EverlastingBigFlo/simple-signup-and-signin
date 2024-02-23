@@ -28,4 +28,10 @@ class indexController extends Controller
        User::create($request->all());
        return redirect()->back()->with('message','Your account have been created successful');
     }
+
+    //get my login view and send request to database
+    public function login()
+    {
+        return view('login');
+    }
 }
