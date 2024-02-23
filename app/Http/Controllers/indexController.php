@@ -25,5 +25,6 @@ class indexController extends Controller
         // get my data sent from form submitted to my database
 
        User::create($request->all());
+       return redirect()->back()->with('message','Your account have been created successful');
     }
 }
