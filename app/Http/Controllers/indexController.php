@@ -19,7 +19,7 @@ class indexController extends Controller
         // validating my request
         $request->validate([
             'name' => 'required',
-            'email' => 'required|email|unique:user',
+            'email' => 'required|email|unique:users',
             'password' => 'required|confirmed|min:6',
             'password_confirmation' => 'required',
         ]);
