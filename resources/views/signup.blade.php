@@ -55,7 +55,7 @@
 
                     <div class="mx-auto max-w-xs">
                         {{-- form section  --}}
-                        <form action="{{ route('signupCommand') }}" method="post">
+                        <form action="{{ route('signupCommand') }}" method="POST">
                             @csrf
                             <input
                                 class="w-full px-8 py-4 my-5 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
