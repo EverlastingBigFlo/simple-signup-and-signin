@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class indexController extends Controller
@@ -21,5 +22,8 @@ class indexController extends Controller
             'password'  => 'required|confirmed|min:6',
             'password_confirmation'  => 'required',
         ]);
+        // get my data sent from form submitted to my database
+
+       User::create($request->all());
     }
 }
