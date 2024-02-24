@@ -12,7 +12,7 @@
 
                 <!-- Email input -->
                 <div class="relative mb-6">
-                    <input type="password" name="password" value="{{ old('password') }}" placeholder="Email address"
+ <input type="password" name="password" value="{{ old('password') }}" placeholder="Email address"
                         class="w-full py-[0.32rem] leading-[2.15] outline-none bg-transparent px-3 transition-all duration-200 ease-linear 
                 motion-reduce:transition-none dark:text-neutral-200 block min-h-[auto] rounded p-0 text-sm border-[1px]">
                 </div>
@@ -24,7 +24,7 @@
                         class="w-full py-[0.32rem] leading-[2.15] outline-none bg-transparent px-3 transition-all duration-200 ease-linear 
                     motion-reduce:transition-none dark:text-neutral-200 block min-h-[auto] rounded p-0 text-sm border-[1px]"
                         id="exampleFormControlInput22" placeholder="Password" />
-                    <small style="color: red">
+<small style="color: red">
                         @error('password')
                         @enderror
                     </small>
