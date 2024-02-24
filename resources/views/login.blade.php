@@ -6,52 +6,43 @@
         <div
             class="mx-5 border dark:border-b-white/50 dark:border-t-white/50 border-b-white/20 sm:border-t-white/20 shadow-[20px_0_20px_20px] shadow-slate-500/10 dark:shadow-white/20 rounded-lg border-white/20 border-l-white/20 border-r-white/20 sm:shadow-sm lg:rounded-xl lg:shadow-none">
             <div class="p-6">
-            <h1>Sign in</h1>
+                <h1>Sign in</h1>
 
-            <p class="mt-1.5 text-sm font-medium text-white/50">Welcome back, enter your credentials to continue.</p>
+                <p class="mt-1.5 text-sm font-medium text-white/50">Welcome back, enter your credentials to continue.</p>
 
-            <!-- Email input -->
-            <div class="relative mb-6">
-                <input type="password" name="password" value="{{ old('password') }}" placeholder="Email address"
-                    class="w-full py-[0.32rem] leading-[2.15] border-0 bg-transparent px-3  outline-none transition-all duration-200 ease-linear 
-                motion-reduce:transition-none dark:text-neutral-200
-                block min-h-[auto] rounded p-0 text-sm file:my-1 file:rounded-full file:border-0 file:bg-accent file:px-4 file:py-2 sm:leading-7
-                ">
+                <!-- Email input -->
+                <div class="relative mb-6">
+                    <input type="password" name="password" value="{{ old('password') }}" placeholder="Email address"
+                        class="w-full py-[0.32rem] leading-[2.15] outline-none bg-transparent px-3 transition-all duration-200 ease-linear 
+                motion-reduce:transition-none dark:text-neutral-200 block min-h-[auto] rounded p-0 text-sm border-[1px]">
+                </div>
+
+
+                <!-- Password input -->
+                <div class="relative mb-6">
+                    <input type="password" name="password" value="{{ old('password') }}"
+                        class="w-full py-[0.32rem] leading-[2.15] outline-none bg-transparent px-3 transition-all duration-200 ease-linear 
+                    motion-reduce:transition-none dark:text-neutral-200 block min-h-[auto] rounded p-0 text-sm border-[1px]"
+                        id="exampleFormControlInput22" placeholder="Password" />
+                    <small style="color: red">
+                        @error('password')
+                        @enderror
+                    </small>
+                </div>
+
+                <div class="!mt-10">
+                    <button type="submit"
+                        class="w-full shadow-xl py-2.5 px-4 text-sm font-semibold rounded text-white bg-blue-600 hover:bg-blue-700 focus:outline-none">
+                        Log in
+                    </button>
+                    <!-- Register link -->
+                    <p class="mb-0 mt-2 pt-1 text-sm font-semibold">
+                        Don't have an account?
+                        <a href="#!"
+                            class="text-danger transition duration-150 ease-in-out hover:text-danger-600 focus:text-danger-600 active:text-danger-700">Register</a>
+                    </p>
+                </div>
             </div>
-
-
-
-
-
-            <!-- Password input -->
-            <div class="relative mb-6">
-                <input type="password" name="password" value="{{ old('password') }}"
-                    class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] 
-                    leading-[2.15] outline-none transition-all duration-200 ease-linear 
-                    focus:placeholder:opacity-100 dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-                    id="exampleFormControlInput22" placeholder="Password" />
-                <label for="exampleFormControlInput22"
-                    class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[2.15] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[1.15rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[1.15rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary">Password
-                </label>
-                <small style="color: red">
-                    @error('password')
-                    @enderror
-                </small>
-            </div>
-
-            <div class="!mt-10">
-                <button type="submit"
-                    class="w-full shadow-xl py-2.5 px-4 text-sm font-semibold rounded text-white bg-blue-600 hover:bg-blue-700 focus:outline-none">
-                    Log in
-                </button>
-                <!-- Register link -->
-                <p class="mb-0 mt-2 pt-1 text-sm font-semibold">
-                    Don't have an account?
-                    <a href="#!"
-                        class="text-danger transition duration-150 ease-in-out hover:text-danger-600 focus:text-danger-600 active:text-danger-700">Register</a>
-                </p>
-            </div>
-        </div>
         </div>
     </form>
 </div>
