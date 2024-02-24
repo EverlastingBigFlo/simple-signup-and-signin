@@ -15,7 +15,9 @@
                 <input type="password" name="password" value="{{ old('password') }}" placeholder="Email address"
                     class="w-full py-[0.32rem] leading-[2.15] border-0 bg-transparent px-3  outline-none transition-all duration-200 ease-linear 
                 motion-reduce:transition-none dark:text-neutral-200
-                block min-h-[auto] rounded">
+                block min-h-[auto] rounded p-0 text-sm file:my-1 file:rounded-full file:border-0 file:bg-accent file:px-4 file:py-2 
+                file:font-medium placeholder:text-muted-foreground/90 focus:outline-none focus:ring-0 sm:leading-7 text-foreground
+                ">
                 <label for="exampleFormControlInput2"
                     class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[2.15] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[1.15rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[1.15rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary">Email
                     address
