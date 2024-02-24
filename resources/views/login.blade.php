@@ -3,6 +3,7 @@
 <div class="bg-black w-full h-full flex justify-center items-center">
 
     <form class=" text-gray-300" action="{{ route('loginCommand') }}" method="post">
+        @csrf
         <div
             class="mx-5 border dark:border-b-white/50 dark:border-t-white/50 border-b-white/20 sm:border-t-white/20 
             shadow-[20px_0_20px_20px] shadow-slate-500/10 dark:shadow-white/20 rounded-lg border-white/20 border-l-white/20
@@ -17,6 +18,11 @@
                     <input type="password" name="password" value="{{ old('password') }}" placeholder="Email address"
                         class="w-full py-[0.32rem] leading-[2.15] outline-none bg-transparent px-3 transition-all duration-200 ease-linear 
                 motion-reduce:transition-none dark:text-neutral-200 block min-h-[auto] rounded p-0 text-sm border-[1px]">
+                <small style="color: red">
+                    @error('email')
+                    {{$message}}
+                    @enderror
+                </small>
                 </div>
 
 
@@ -25,9 +31,10 @@
                     <input type="password" name="password" value="{{ old('password') }}"
                         class="w-full py-[0.32rem] leading-[2.15] outline-none bg-transparent px-3 transition-all duration-200 ease-linear 
                     motion-reduce:transition-none dark:text-neutral-200 block min-h-[auto] rounded p-0 text-sm border-[1px]"
-                        id="exampleFormControlInput22" placeholder="Password" />
+                        id="exampleFormControlInput22" placeholder="Password"/>
                     <small style="color: red">
                         @error('password')
+                        {{$message}}
                         @enderror
                     </small>
                 </div>
