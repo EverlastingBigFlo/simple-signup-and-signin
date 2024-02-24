@@ -16,6 +16,10 @@
             @enderror
         </small>
 
-        <button type="submit">Sign In</button>
+        <div class="!mt-10">
+            <button type="submit" class="w-full shadow-xl py-2.5 px-4 text-sm font-semibold rounded text-white bg-blue-600 hover:bg-blue-700 focus:outline-none">
+              Log in
+            </button>
+          </div>
     </form>
 </div>
