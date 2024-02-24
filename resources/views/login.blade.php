@@ -2,7 +2,7 @@
 
 <div class="bg-black w-full h-full flex justify-center items-center">
    
-    <form class="bg-black" action="{{ route('loginCommand') }}" method="post">
+    <form class="bg-red-500" action="{{ route('loginCommand') }}" method="post">
         <h1>Sign in</h1>
         <h6>Sign in to your account and explore a world of possibilities. Your journey begins here.</h6>
         <input type="email" name="email" value="{{ old('email') }}" placeholder="Enter Email">
