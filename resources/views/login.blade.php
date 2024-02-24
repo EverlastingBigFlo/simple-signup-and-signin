@@ -1,5 +1,5 @@
 @extends('layouts/layouts')
-{{-- 
+
 <div class="bg-black w-full h-full flex justify-center items-center">
    
     <form class="bg-red-500" action="{{ route('loginCommand') }}" method="post">
@@ -22,7 +22,7 @@
             </button>
           </div>
     </form>
-</div> --}}
+</div>
 
 
 <!-- TW Elements is free under AGPL, with commercial license required for specific uses. See more details: https://tw-elements.com/license/ and contact us for queries at tailwind@mdbootstrap.com --> 
