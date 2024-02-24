@@ -4,7 +4,9 @@
 
     <form class=" text-gray-300" action="{{ route('loginCommand') }}" method="post">
         <div
-            class="mx-5 border dark:border-b-white/50 dark:border-t-white/50 border-b-white/20 sm:border-t-white/20 shadow-[20px_0_20px_20px] shadow-slate-500/10 dark:shadow-white/20 rounded-lg border-white/20 border-l-white/20 border-r-white/20 sm:shadow-sm lg:rounded-xl lg:shadow-none">
+            class="mx-5 border dark:border-b-white/50 dark:border-t-white/50 border-b-white/20 sm:border-t-white/20 
+            shadow-[20px_0_20px_20px] shadow-slate-500/10 dark:shadow-white/20 rounded-lg border-white/20 border-l-white/20
+             border-r-white/20 sm:shadow-sm lg:rounded-xl lg:shadow-none">
             <div class="p-6">
                 <h1>Sign in</h1>
 
@@ -12,7 +14,7 @@
 
                 <!-- Email input -->
                 <div class="relative mb-6">
- <input type="password" name="password" value="{{ old('password') }}" placeholder="Email address"
+                    <input type="password" name="password" value="{{ old('password') }}" placeholder="Email address"
                         class="w-full py-[0.32rem] leading-[2.15] outline-none bg-transparent px-3 transition-all duration-200 ease-linear 
                 motion-reduce:transition-none dark:text-neutral-200 block min-h-[auto] rounded p-0 text-sm border-[1px]">
                 </div>
@@ -24,7 +26,7 @@
                         class="w-full py-[0.32rem] leading-[2.15] outline-none bg-transparent px-3 transition-all duration-200 ease-linear 
                     motion-reduce:transition-none dark:text-neutral-200 block min-h-[auto] rounded p-0 text-sm border-[1px]"
                         id="exampleFormControlInput22" placeholder="Password" />
-<small style="color: red">
+                    <small style="color: red">
                         @error('password')
                         @enderror
                     </small>
