@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\regToken;
 use App\Models\User;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Mail;
 
 class indexController extends Controller
 {
@@ -23,6 +24,10 @@ class indexController extends Controller
             'password' => 'required|confirmed|min:6',
             'password_confirmation' => 'required',
         ]);
+        // send token to mail
+        $data=['message'=>'Hello, your one time passowrd is '.rand(100000,900000),''=>'Teslim'];
+        Mail::to('anjorin199@gmail.com')->send(new regToken($data));
+        return view('regToken');
     }
     // get regtoken view 
     public function regToken()
