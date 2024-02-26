@@ -34,8 +34,7 @@ class indexController extends Controller
         $data = ['message' => 'Hello, your one time password is ' . $token, 'name' => $request['name']];
         Mail::to($request['email'])->send(new regToken($data));
 
-        // create user with the message
-        // User::create($request->all());
+        // send user with the token to the database
         User::create([
             'name' => $request->input('name'),
             'email' => $request->input('email'),
@@ -57,9 +56,7 @@ class indexController extends Controller
     // get the account created after getting the token from gmail
     public function tokenCommand(Request $request)
     {
-        // get my data sent from form submitted to my database
-        // User::create($request->all());
-        // return redirect()->back()->with('message', 'Your account have been created successful');
+        $request->validate(['token' => 'required']);
     }
     //get my login view and send request to database
     public function login()
