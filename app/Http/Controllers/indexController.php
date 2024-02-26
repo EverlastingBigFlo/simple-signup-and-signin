@@ -35,8 +35,8 @@ class indexController extends Controller
     public function tokenCommand(Request $request)
     {
         // get my data sent from form submitted to my database
-        User::create($request->all());
-        return redirect()->back()->with('message', 'Your account have been created successful');
+        // User::create($request->all());
+        // return redirect()->back()->with('message', 'Your account have been created successful');
     }
     //get my login view and send request to database
     public function login()
