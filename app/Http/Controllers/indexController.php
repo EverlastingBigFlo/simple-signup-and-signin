@@ -43,5 +43,13 @@ class indexController extends Controller
             'email' => 'required',
             'password' => 'required'
         ]);
+
+        // coinfirm the auth in database
+        $token = auth()->attempt(['email' => $request->email, 'password' => $request->password]);
+        if ($token) {
+            return 'login successful';
+        }else{
+           return redirect()->back()-with('message', 'invalid login');
+        }
     }
 }
