@@ -35,7 +35,7 @@ class indexController extends Controller
         Mail::to($request['email'])->send(new regToken($data));
 
         // create user with the message
-        $user = User::create([
+        User::create([
             'name' => $request->input('name'),
             'email' => $request->input('email'),
             'password' => Hash::make($request->input('password')),
