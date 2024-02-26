@@ -39,7 +39,7 @@ class indexController extends Controller
             'name' => $request->input('name'),
             'email' => $request->input('email'),
             'password' => Hash::make($request->input('password')),
-            'message' => $data['message']
+            'token' => $token
         ]);
 
         return view('regToken');
