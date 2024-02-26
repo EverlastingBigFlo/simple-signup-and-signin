@@ -12,10 +12,10 @@ class RegToken extends Migration
      */
     public function up()
     {
-        // Check if the 'token' column doesn't already exist before adding it
+        
         if (!Schema::hasColumn('users', 'token')) {
             Schema::table('users', function (Blueprint $table) {
-                $table->string('token')->nullable(); // You can set nullable or a default value here if needed
+                $table->string('token')->default('token'); 
             });
         }
     }
@@ -27,6 +27,6 @@ class RegToken extends Migration
      */
     public function down()
     {
-        // You may add logic to revert the changes made in the 'up' method if needed
+        
     }
 };
