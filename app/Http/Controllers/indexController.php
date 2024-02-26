@@ -59,6 +59,16 @@ class indexController extends Controller
         $request->validate(['token' => 'required']);
 
         $user = User::where('token', $request->token)->first();
+        if ($user) {
+
+            $user->update(['token' => null]); // Nullify the token or mark it as used
+
+            return redirect()->route('registration.success');
+        } else {
+            
+            // Token doesn't match
+            return redirect()->back()->with('error', 'Invalid token or email.');
+        }
 
     }
     //get my login view and send request to database
