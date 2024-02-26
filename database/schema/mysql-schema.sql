@@ -85,3 +85,4 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES (5,'2014_10_12_0000
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES (6,'2014_10_12_100000_create_password_reset_tokens_table',1);
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES (7,'2019_08_19_000000_create_failed_jobs_table',1);
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES (8,'2019_12_14_000001_create_personal_access_tokens_table',1);
+INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES (9,'2024_02_26_103843_register-token',2);
