@@ -1,10 +1,7 @@
 @extends('layouts/layouts')
 
 <div class="bg-black w-full h-full flex justify-center items-center">
-    {{-- where to route to when the account is being registered to the database --}}
-    @if (session()->has('message'))
-        <h1>{{ session()->get('message') }}</h1>
-    @endif
+
 
 
     <form class=" text-gray-300 p-15" action="{{ route('loginCommand') }}" method="post">
@@ -19,6 +16,11 @@
                 <h1>Sign in</h1>
 
                 <p class="m-5 text-sm font-medium text-white/50">Welcome back, enter your credentials to continue.</p>
+
+                {{-- where to route to when the account is being registered to the database --}}
+                @if (session()->has('message'))
+                    <h1 class=" text-red-600">{{ session()->get('message') }}</h1>
+                @endif
 
                 <!-- Email input -->
                 <div class="relative mb-6">
@@ -54,7 +56,7 @@
                     <!-- Register link -->
                     <p class="m-2 pt-1 text-sm font-semibold">
                         Don't have an account?
-                        <a href="#!"
+                        <a href="{{ asset('/signup') }}"
                             class="text-danger transition duration-150 ease-in-out hover:text-danger-600 focus:text-danger-600 active:text-danger-700">Register</a>
                     </p>
                 </div>
