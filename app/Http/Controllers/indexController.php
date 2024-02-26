@@ -26,7 +26,11 @@ class indexController extends Controller
 
        
     }
-
+// get regtoken view 
+public function regToken()
+{
+    
+}
 
 
     // get the account created after getting the token from gmail

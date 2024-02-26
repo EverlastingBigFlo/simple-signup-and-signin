@@ -25,9 +25,7 @@ Route::get('/signup', [indexController::class, 'signup'])->name('signup');
 Route::post('/signup', [indexController::class, 'signupCommand'])->name('signupCommand');
 
 //get regToken view display
-Route::get('/regToken', function ($id) {
-    
-});
+Route::get('/regToken',[indexController::class, 'regToken'])->name('regToken');
 
 // get my login to display
 Route::get('/login', [indexController::class, 'login'])->name('log');
