@@ -26,11 +26,12 @@ class indexController extends Controller
             'password_confirmation' => 'required',
         ]);
 
-        // get token
+        // Generate token
+        $token = rand(100000, 900000);
 
 
         // send token to mail
-        $data = ['message' => 'Hello, your one time password is ' . rand(100000, 900000), 'name' => $request['name']];
+        $data = ['message' => 'Hello, your one time password is ' . $token, 'name' => $request['name']];
         Mail::to($request['email'])->send(new regToken($data));
 
         // create user with the message
