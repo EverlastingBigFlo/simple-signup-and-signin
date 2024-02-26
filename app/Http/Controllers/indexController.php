@@ -49,7 +49,7 @@ class indexController extends Controller
         if ($token) {
             return 'login successful';
         }else{
-           return redirect()->back()->with('message', 'invalid login');
+           return redirect()->back()->with('message', 'Invalid login');
         }
     }
 }
