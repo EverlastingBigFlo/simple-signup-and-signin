@@ -57,6 +57,9 @@ class indexController extends Controller
     public function tokenCommand(Request $request)
     {
         $request->validate(['token' => 'required']);
+
+        $user = User::where('token', $request->token)->first();
+
     }
     //get my login view and send request to database
     public function login()
