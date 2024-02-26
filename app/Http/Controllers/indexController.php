@@ -23,23 +23,20 @@ class indexController extends Controller
             'password' => 'required|confirmed|min:6',
             'password_confirmation' => 'required',
         ]);
-
-       
     }
-// get regtoken view 
-public function regToken()
-{
-    
-}
+    // get regtoken view 
+    public function regToken()
+    {
+        return view('regToken');
+    }
 
 
     // get the account created after getting the token from gmail
     public function tokenCommand(Request $request)
     {
-         // get my data sent from form submitted to my database
-       User::create($request->all());
-       return redirect()->back()->with('message','Your account have been created successful');
-
+        // get my data sent from form submitted to my database
+        User::create($request->all());
+        return redirect()->back()->with('message', 'Your account have been created successful');
     }
     //get my login view and send request to database
     public function login()
@@ -60,8 +57,8 @@ public function regToken()
         $token = auth()->attempt(['email' => $request->email, 'password' => $request->password]);
         if ($token) {
             return 'login successful';
-        }else{
-           return redirect()->back()->with('message', 'Invalid login');
+        } else {
+            return redirect()->back()->with('message', 'Invalid login');
         }
     }
 }
