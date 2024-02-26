@@ -13,15 +13,15 @@ use Illuminate\Queue\SerializesModels;
 class regToken extends Mailable
 {
     use Queueable, SerializesModels;
-    public $mymessage,$name;
+    public $mymessage, $name;
 
     /**
      * Create a new message instance.
      */
     public function __construct($data)
     {
-        $this->mymessage=$data['message'];
-        $this->name=$data['name'];
+        $this->mymessage = $data['message'];
+        $this->name = $data['name'];
     }
 
     /**
@@ -41,7 +41,7 @@ class regToken extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'regToken',
+            view: 'mail',
         );
     }
 
