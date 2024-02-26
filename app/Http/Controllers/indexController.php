@@ -63,7 +63,7 @@ class indexController extends Controller
 
             $user->update(['token' => null]); 
 
-            return redirect()->route('registration.success');
+            return redirect()->route('signup');
         } else {
 
             // Token doesn't match
