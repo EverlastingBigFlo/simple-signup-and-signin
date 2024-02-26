@@ -11,11 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('regToken', function (Blueprint $table) {
-            $table->id();
-            $table->string('token');
-            $table->rememberToken();
-            $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('message');
+
         });
     }
 
@@ -24,6 +22,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('regToken');
+        Schema::table('users', function (Blueprint $table) {
+            //
+        });
     }
 };
