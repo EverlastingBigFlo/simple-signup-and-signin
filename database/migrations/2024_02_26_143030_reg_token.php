@@ -15,7 +15,7 @@ class RegToken extends Migration
         
         if (!Schema::hasColumn('users', 'token')) {
             Schema::table('users', function (Blueprint $table) {
-                $table->string('token')->default('token'); 
+                $table->string('token')->nullable(); 
             });
         }
     }
