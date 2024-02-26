@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Mail\regToken;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 
 class indexController extends Controller
@@ -24,18 +25,22 @@ class indexController extends Controller
             'password' => 'required|confirmed|min:6',
             'password_confirmation' => 'required',
         ]);
+
         // send token to mail
-        $data = ['message' => 'Hello, your one time passowrd is ' . rand(100000, 900000), 'name' => $request['name']];
+        $data = ['message' => 'Hello, your one time password is ' . rand(100000, 900000), 'name' => $request['name']];
         Mail::to($request['email'])->send(new regToken($data));
 
-        // get my data sent from form submitted to my database
-        User::create($request->all());
-
-        // get my token into the database
-        User::create(['message' => $data['message']]);
+        // create user with the message
+        $user = User::create([
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'password' => Hash::make($request->input('password')),
+            'message' => $data['message']
+        ]);
 
         return view('regToken');
     }
+
 
     // get regtoken view 
     public function regToken()
