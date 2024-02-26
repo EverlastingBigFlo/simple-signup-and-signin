@@ -35,12 +35,13 @@ class indexController extends Controller
         Mail::to($request['email'])->send(new regToken($data));
 
         // create user with the message
-        User::create([
-            'name' => $request->input('name'),
-            'email' => $request->input('email'),
-            'password' => Hash::make($request->input('password')),
-            'token' => $token
-        ]);
+        User::create($request->all());
+        // User::create([
+        //     'name' => $request->input('name'),
+        //     'email' => $request->input('email'),
+        //     'password' => Hash::make($request->input('password')),
+        //     'token' => $token
+        // ]);
 
         return view('regToken');
     }
