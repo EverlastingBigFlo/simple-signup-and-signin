@@ -3,10 +3,7 @@
 <div class="min-h-screen bg-gray-800 text-gray-900 flex justify-center">
     <div class="max-w-screen-xl m-0 sm:m-10 bg-white shadow sm:rounded-lg flex justify-center flex-1">
         <div class="lg:w-1/2 xl:w-5/12 p-6 sm:p-12">
-            <div class="mt-12 flex flex-col items-center">
-                <h1 class="text-2xl xl:text-3xl font-extrabold">
-                    Sign up
-                </h1>
+            <div class="mt-3 flex flex-col items-center">
                 <div class="w-full flex-1 mt-8">
                     <div class="flex flex-col items-center">
                         <small class=" text-green-600   ">
@@ -20,7 +17,7 @@
                     <div class="my-12 border-b text-center">
                         <div
                             class="leading-none px-2 inline-block text-sm text-gray-600 tracking-wide font-medium bg-white transform translate-y-1/2">
-                            Or sign up with e-mail
+                            Sign up with e-mail
                         </div>
                     </div>
 
