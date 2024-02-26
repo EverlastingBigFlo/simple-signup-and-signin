@@ -14,9 +14,11 @@ class RegToken extends Migration
     public function up()
     {
 
-        Schema::table('users', function (Blueprint $table) {
-            $table->string('token')->nullable(); // Allow NULL values for the token column
-        });
+        if (!Schema::hasColumn('users', 'token')) {
+            Schema::table('users', function (Blueprint $table) {
+                $table->string('token')->nullable(); 
+            });
+        }
     }
 
     /**
@@ -27,4 +29,4 @@ class RegToken extends Migration
     public function down()
     {
     }
-};
+}
