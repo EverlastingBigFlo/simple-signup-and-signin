@@ -61,11 +61,11 @@ class indexController extends Controller
         $user = User::where('token', $request->token)->first();
         if ($user) {
 
-            $user->update(['token' => null]); // Nullify the token or mark it as used
+            $user->update(['token' => null]); 
 
             return redirect()->route('registration.success');
         } else {
-            
+
             // Token doesn't match
             return redirect()->back()->with('error', 'Invalid token or email.');
         }
