@@ -17,11 +17,6 @@
 
                 <p class="m-5 text-sm font-medium text-white/50">Welcome back, enter your credentials to continue.</p>
 
-                {{-- where to route to when the account is being registered to the database --}}
-                @if (session()->has('message'))
-                    <h1 class=" text-red-600">{{ session()->get('message') }}</h1>
-                @endif
-
                 <!-- Email input -->
                 <div class="relative mb-6">
                     <input type="email" name="email" value="{{ old('email') }}" placeholder="Email address"
@@ -35,18 +30,6 @@
                 </div>
 
 
-                <!-- Password input -->
-                <div class="relative mb-6">
-                    <input type="password" name="password" value="{{ old('password') }}"
-                        class="w-full py-[0.32rem] leading-[2.15] outline-none bg-transparent px-3 transition-all duration-200 ease-linear 
-                    motion-reduce:transition-none dark:text-neutral-200 block min-h-[auto] rounded p-0 text-sm border-[1px]"
-                        id="exampleFormControlInput22" placeholder="Password" />
-                    <small style="color: red">
-                        @error('password')
-                            {{ $message }}
-                        @enderror
-                    </small>
-                </div>
 
                 <button type="submit"
                 class="mt-5 tracking-wide font-semibold bg-indigo-500 text-gray-100 w-full py-4 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
