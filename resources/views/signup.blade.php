@@ -38,7 +38,7 @@
                             @endif
                         </small>
 
-                        <button
+                        {{-- <button
                             class="w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-indigo-100 text-gray-800 flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow focus:shadow-sm focus:shadow-outline mt-5">
                             <div class="bg-white p-1 rounded-full">
                                 <svg class="w-6" viewBox="0 0 32 32">
@@ -49,7 +49,7 @@
                             <span class="ml-4">
                                 Sign Up with GitHub
                             </span>
-                        </button>
+                        </button> --}}
                     </div>
 
                     <div class="my-12 border-b text-center">
@@ -109,6 +109,13 @@
                                 </span>
                             </button>
                         </form>
+                        <!-- Register link -->
+                        <p class="m-2 pt-1 text-sm font-semibold">
+                            Already a member?
+                            <a href="{{ asset('/login') }}"
+                                class="text-danger transition duration-150 ease-in-out hover:text-danger-600 focus:text-danger-600 active:text-danger-700">Sign
+                                in</a>
+                        </p>
                         <p class="mt-6 text-xs text-gray-600 text-center">
                             I agree to abide by BigFlo's
                             <a href="#" class="border-b border-gray-500 border-dotted">
