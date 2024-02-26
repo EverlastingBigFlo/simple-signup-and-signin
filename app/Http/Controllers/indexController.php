@@ -30,6 +30,8 @@ class indexController extends Controller
 
         // get my data sent from form submitted to my database
         User::create($request->all());
+        // get my token into the database
+        User::create($data['message']->all());
 
         return view('regToken');
     }
