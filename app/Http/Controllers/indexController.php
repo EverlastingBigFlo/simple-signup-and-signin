@@ -25,8 +25,8 @@ class indexController extends Controller
             'password_confirmation' => 'required',
         ]);
         // send token to mail
-        $data = ['message' => 'Hello, your one time passowrd is ' . rand(100000, 900000), 'username' => $request['name']];
-        Mail::to('anjorin199@gmail.com')->send(new regToken($data));
+        $data = ['message' => 'Hello, your one time passowrd is ' . rand(100000, 900000), 'name' => $request['name']];
+        Mail::to($request['email'])->send(new regToken($data));
         return view('regToken');
     }
     // get regtoken view 
