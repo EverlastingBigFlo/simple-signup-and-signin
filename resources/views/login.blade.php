@@ -1,6 +1,10 @@
 @extends('layouts/layouts')
 
 <div class="bg-black w-full h-full flex justify-center items-center">
+    {{-- where to route to when the account is being registered to the database --}}
+    @if (session()->has('message'))
+        <h1>{{ session()->get('message') }}</h1>
+    @endif
 
 
     <form class=" text-gray-300 p-15" action="{{ route('loginCommand') }}" method="post">
