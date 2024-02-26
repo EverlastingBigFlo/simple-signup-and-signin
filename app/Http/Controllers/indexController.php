@@ -24,15 +24,16 @@ class indexController extends Controller
             'password' => 'required|confirmed|min:6',
             'password_confirmation' => 'required',
         ]);
-        // get my data sent from form submitted to my database
-        User::create($request->all());
-        
         // send token to mail
         $data = ['message' => 'Hello, your one time passowrd is ' . rand(100000, 900000), 'name' => $request['name']];
         Mail::to($request['email'])->send(new regToken($data));
+
+        // get my data sent from form submitted to my database
+        User::create($request->all());
+
         return view('regToken');
     }
-    
+
     // get regtoken view 
     public function regToken()
     {
