@@ -130,10 +130,8 @@ class indexController extends Controller
     public function logout()
     {
         return view('logout');
-    }
-    public function logoutNow()
-    {
         auth()->logout();
+        
         return redirect()->route('login')->with('message', 'You have been logged out successfully.');
     }
 }
