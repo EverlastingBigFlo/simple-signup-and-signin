@@ -64,11 +64,8 @@ class indexController extends Controller
     {
 
         $email = session()->get('email');
-
-        // validate the token input 
         $request->validate(['token' => 'required']);
 
-        // get user by email 
         $user = User::where('email', $email)->first();
 
 
@@ -76,10 +73,7 @@ class indexController extends Controller
         if ($user->token == $request->token) {
 
             $user->is_confirmed = true;
-
             $user->save();
-
-            // remove the email that was flashed put inside section 
             session()->remove('email');
 
             // Redirect to signup page or any other page as needed
