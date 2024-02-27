@@ -20,7 +20,7 @@ class indexController extends Controller
     {
         // validating my request
         $request->validate([
-            'username' => ['required', 'string', 'max:255', 'unique:users', 'alpha_dash'],
+            'name' => ['required', 'string', 'max:255', 'unique:users', 'alpha_dash'],
             'email' => 'required|email|unique:users',
             'password' => 'required|confirmed|min:6',
             'password_confirmation' => 'required',
