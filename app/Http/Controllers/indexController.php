@@ -84,7 +84,6 @@ class indexController extends Controller
 
             // Redirect to signup page or any other page as needed
             return redirect()->route('signup')->with('message', 'Registration confirmed successfully.');
-
         } else {
 
 
