@@ -99,6 +99,7 @@ class indexController extends Controller
         $credentials =  $request->only('email', 'password');
 
         // try to get the user information from the database
+        $credentials['is_confirmed'] = true;
 
         if (auth()->attempt($credentials)) {
 
