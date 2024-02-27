@@ -137,7 +137,7 @@ class indexController extends Controller
     }
 
     // to delete user
-    public function deleteAccount($id)
+    public function deleteAccount(User $id)
     {
         $users = User::findOrFail($id);
 
