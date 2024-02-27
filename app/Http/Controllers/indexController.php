@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Mail\regToken;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
@@ -27,9 +28,17 @@ class indexController extends Controller
         ]);
 
         // Generate token
-        $token = rand(100000, 900000);
+        // $token = rand(100000, 900000);
+        $token = [
+            'value' => rand(100000, 900000),
 
+            // save the time the token was generated 
+            'created_at' => Carbon::now(),
+        ];
 
+        // save token inside session 
+        session()->put('token', $token);
+        
         // get the mail message here
         $data = ['message' => 'Hello, your one time password is ' . $token, 'username' => $request['username']];
 
@@ -142,13 +151,11 @@ class indexController extends Controller
     {
         // Find the user by their email
         $user = User::where('email', $request->email)->firstOrFail();
-    
+
         // Delete the user
         $user->delete();
-    
+
         // Redirect with a message
         return redirect()->route('signup')->with('message', 'Sad to see you leave.');
     }
-    
-    
 }
