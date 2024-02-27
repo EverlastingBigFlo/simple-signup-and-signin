@@ -92,8 +92,8 @@ class indexController extends Controller
             // Check if token has expired
             if (Carbon::parse($token['created_at'])->addMinutes(1)->isPast()) {
                 // Token has expired
-                $user->delete(); // Remove the user record
-                session()->remove('email');
+                $user->delete();
+                
                 session()->remove('token');
                 return redirect()->route('signup')->with('message', 'Token has expired. Please sign up again.');
             }
