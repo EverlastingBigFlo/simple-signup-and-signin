@@ -138,10 +138,10 @@ class indexController extends Controller
 
     // to delete user
 
-    public function deleteAccount($id)
+    public function deleteAccount(Request $request)
     {
-        // Find the user by their ID
-        $user = User::findOrFail($id);
+        // Find the user by their email
+        $user = User::where('email', $request->email)->firstOrFail();
     
         // Delete the user
         $user->delete();
@@ -149,5 +149,6 @@ class indexController extends Controller
         // Redirect with a message
         return redirect()->route('signup')->with('message', 'Sad to see you leave.');
     }
+    
     
 }

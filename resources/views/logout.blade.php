@@ -28,7 +28,7 @@
                         </span>
                     </button>
                 </a>
-                <a href="{{ asset('/logout') }}">
+                <a href="{{ asset('/deleteAccount') }}">
                     <button type="submit"
                         class="mt-5 tracking-wide font-semibold bg-indigo-500 text-gray-100 w-full py-2 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
                         <span class="ml-3">
@@ -48,14 +48,14 @@
                     </button>
                 </a>
             </form> --}}
-            {{-- <form action="{{ route('deleteAccount', ['id' => auth()->user()->id]) }}" method="POST">
+                {{-- <form action="{{ route('deleteAccount', ['id' => auth()->user()->id]) }}" method="POST">
                 @csrf
                 @method('DELETE')
                 <button type="submit" class="mt-5 tracking-wide font-semibold bg-indigo-500 text-gray-100 w-full py-2 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
                     Delete Account
                 </button>
             </form> --}}
-            
+
             </div>
         </div>
     </div>
