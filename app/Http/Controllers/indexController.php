@@ -72,7 +72,7 @@ class indexController extends Controller
         $user = User::where('email', $email)->first();
 
 
-
+        
         if ($user->token == $request->token) {
 
             $user->is_confirmed = true;
