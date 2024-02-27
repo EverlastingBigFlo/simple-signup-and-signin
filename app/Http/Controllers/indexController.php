@@ -29,17 +29,24 @@ class indexController extends Controller
 
         // Generate token
         // $token = rand(100000, 900000);
-        $token = [
-            'value' => rand(100000, 900000),
+        // Generate token
+        $tokenValue = rand(100000, 900000);
+        $tokenCreatedAt = now(); // Save the time the token was generated
 
-            // save the time the token was generated 
-            'created_at' => Carbon::now(),
+        $token = [
+            'value' => $tokenValue,
+            'created_at' => $tokenCreatedAt,
         ];
 
-        // save token inside session 
+
+        // Get the mail message here
+        $data = [
+            'message' => 'Hello, your one time password is ' . $tokenValue . '. Token created at: ' . $tokenCreatedAt,
+            'username' => $request['username'],
+        ];
 
         // get the mail message here
-        $data = ['message' => 'Hello, your one time password is ' . $token, 'username' => $request['username']];
+        // $data = ['message' => 'Hello, your one time password is ' . $token, 'username' => $request['username']];
 
         //send message to mail
         Mail::to($request['email'])->send(new regToken($data));
@@ -92,7 +99,7 @@ class indexController extends Controller
             // Check if token has expired
             if (Carbon::parse($token['created_at'])->addMinutes(1)->isPast()) {
                 // Token has expired
-                $user->delete(); 
+                $user->delete();
                 session()->remove('email');
                 session()->remove('token');
                 return redirect()->route('signup')->with('message', 'Token has expired. Please sign up again.');
