@@ -46,6 +46,8 @@ class indexController extends Controller
             'is_confirmed' => false,
         ]);
 
+        session()->put('email', $request->email);
+
         return view('regToken');
     }
 
@@ -60,9 +62,12 @@ class indexController extends Controller
     // get the account created after getting the token from gmail
     public function confirmReg(Request $request)
     {
+
+        $email = session()->get('email');
         $request->validate(['token' => 'required']);
 
-        $user = User::where('token', $request->token)->first();
+        $user = User::where('email', $email)->first();
+        
 
         if ($user) {
 
