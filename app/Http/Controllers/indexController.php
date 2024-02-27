@@ -93,8 +93,6 @@ class indexController extends Controller
         $user = User::where('email', $email)->first();
 
 
-
-        // if ($user->token == $request->token) 
         if ($token && $user && $user->token === $request->token) {
             // Check if token has expired
             if (Carbon::parse($token['created_at'])->addMinutes(1)->isPast()) {
@@ -104,21 +102,43 @@ class indexController extends Controller
                 session()->remove('token');
                 return redirect()->route('signup')->with('message', 'Token has expired. Please sign up again.');
             }
-
+    
             $user->is_confirmed = true;
             $user->save();
             session()->remove('email');
             session()->remove('token');
-
-
+    
             // Redirect to signup page or any other page as needed
             return redirect()->route('signup')->with('message', 'Registration confirmed successfully.');
         } else {
-
-
             // Token doesn't match
             return redirect()->back()->with('message', 'Invalid token or email.');
         }
+        // if ($user->token == $request->token) 
+        // if ($token && $user && $user->token === $request->token) {
+        //     // Check if token has expired
+        //     if (Carbon::parse($token['created_at'])->addMinutes(1)->isPast()) {
+        //         // Token has expired
+        //         $user->delete();
+        //         session()->remove('email');
+        //         session()->remove('token');
+        //         return redirect()->route('signup')->with('message', 'Token has expired. Please sign up again.');
+        //     }
+
+        //     $user->is_confirmed = true;
+        //     $user->save();
+        //     session()->remove('email');
+        //     session()->remove('token');
+
+
+        //     // Redirect to signup page or any other page as needed
+        //     return redirect()->route('signup')->with('message', 'Registration confirmed successfully.');
+        // } else {
+
+
+        //     // Token doesn't match
+        //     return redirect()->back()->with('message', 'Invalid token or email.');
+        // }
     }
 
 
