@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Mail\regToken;
 use App\Models\User;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
@@ -28,16 +27,8 @@ class indexController extends Controller
         ]);
 
         // Generate token
-        // $token = rand(100000, 900000);
-        $token = [
-            'value' => rand(100000, 900000),
+        $token = rand(100000, 900000);
 
-            // save the time the token was generated 
-            'created_at' => Carbon::now(),
-        ];
-
-        // save token inside session 
-        // session()->put('token', $token);
 
         // get the mail message here
         $data = ['message' => 'Hello, your one time password is ' . $token, 'username' => $request['username']];
@@ -50,14 +41,12 @@ class indexController extends Controller
             'username' => $request->input('username'),
             'email' => $request->input('email'),
             'password' => Hash::make($request->input('password')),
-            'token' => $token['value'],
-            // save token created at inside database 
-            'token_created_at' => $token['created_at'],
+            'token' => $token,
             // set this token confirm to unconfirm by default
             'is_confirmed' => false,
         ]);
-        // put email inside session and token
-        session()->put('email', $request->email, 'token', $token);
+
+        session()->put('email', $request->email);
 
         return view('regToken');
     }
@@ -75,8 +64,6 @@ class indexController extends Controller
     {
 
         $email = session()->get('email');
-        $token = session()->get('token');
-        
         $request->validate(['token' => 'required']);
 
         $user = User::where('email', $email)->first();
@@ -155,11 +142,13 @@ class indexController extends Controller
     {
         // Find the user by their email
         $user = User::where('email', $request->email)->firstOrFail();
-
+    
         // Delete the user
         $user->delete();
-
+    
         // Redirect with a message
         return redirect()->route('signup')->with('message', 'Sad to see you leave.');
     }
+    
+    
 }
