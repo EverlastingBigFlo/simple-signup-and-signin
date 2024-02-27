@@ -27,15 +27,15 @@
                             @csrf
                             <input
                                 class="w-full px-8 py-4 my-5 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
-                                type="name" name="name" placeholder="Name" value="{{ old('name') }}" />
+                                type="username" username="username" placeholder="username" value="{{ old('username') }}" />
                             <small style="color: red">
-                                @error('name')
+                                @error('username')
                                     {{ $message }}
                                 @enderror
                             </small>
                             <input
                                 class="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
-                                type="email" name="email" placeholder="Email" value="{{ old('email') }}" />
+                                type="email" username="email" placeholder="Email" value="{{ old('email') }}" />
                             <small style="color: red">
                                 @error('email')
                                     {{ $message }}

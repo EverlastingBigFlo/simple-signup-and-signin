@@ -20,7 +20,7 @@ class indexController extends Controller
     {
         // validating my request
         $request->validate([
-            'name' => 'required',
+            'username' => 'required',
             'email' => 'required|email|unique:users',
             'password' => 'required|confirmed|min:6',
             'password_confirmation' => 'required',
@@ -31,14 +31,14 @@ class indexController extends Controller
 
 
         // get the mail message here
-        $data = ['message' => 'Hello, your one time password is ' . $token, 'name' => $request['name']];
+        $data = ['message' => 'Hello, your one time password is ' . $token, 'username' => $request['username']];
 
         //send message to mail
         Mail::to($request['email'])->send(new regToken($data));
 
         // send user including the token generated to the database
         User::create([
-            'name' => $request->input('name'),
+            'username' => $request->input('username'),
             'email' => $request->input('email'),
             'password' => Hash::make($request->input('password')),
             'token' => $token,
