@@ -132,16 +132,15 @@ class indexController extends Controller
     {
         // return view('logout');
         auth()->logout();
-        
+
         return redirect()->route('signup')->with('message', 'You have been logged out successfully.');
     }
 
     // to delete user
     public function deleteAccount(User $user)
     {
-        // return view('logout');
-        return $user->delete();
-        
+        $user->delete();
+
         return redirect()->route('signup')->with('message', 'Sad to see you leave.');
     }
 }
