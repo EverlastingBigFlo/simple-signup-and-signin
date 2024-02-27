@@ -4,9 +4,9 @@
 
 
 
-    <form class=" text-gray-300 p-15" action="{{ route('logoutNow') }}" method="get">
-        <div class="relative -mb-px h-px w-full bg-gradient-to-r from-transparent via-sky-300 to-transparent"
-            bis_skin_checked="1"></div>
+
+        {{-- <div class="relative -mb-px h-px w-full bg-gradient-to-r from-transparent via-sky-300 to-transparent"
+            bis_skin_checked="1"></div> --}}
         @csrf
         <div
             class="mx-5 border dark:border-b-white/50 dark:border-t-white/50 border-b-white/20 sm:border-t-white/20 
@@ -27,5 +27,4 @@
                 </button>
             </div>
         </div>
-    </form>
 </div>

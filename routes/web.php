@@ -40,4 +40,3 @@ Route::post('/login', [indexController::class, 'loginCommand'])->name('loginComm
 // get my logout to display
 Route::get('/logout', [indexController::class, 'logout'])->name('logout');
 
-Route::get('/logoutNow', [indexController::class, 'logoutNow'])->name('logout');
