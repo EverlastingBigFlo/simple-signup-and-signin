@@ -42,7 +42,7 @@ class indexController extends Controller
             'email' => $request->input('email'),
             'password' => Hash::make($request->input('password')),
             'token' => $token,
-
+            // set this token confirm to unconfirm by default
             'is_confirmed' => false,
         ]);
 
