@@ -61,7 +61,7 @@ class indexController extends Controller
         $user = User::where('token', $request->token)->first();
         if ($user) {
 
-            $user->update(['token' => null]); 
+            // $user->update(['token' => $token]);
 
             return redirect()->route('signup');
         } else {
@@ -69,7 +69,6 @@ class indexController extends Controller
             // Token doesn't match
             return redirect()->back()->with('error', 'Invalid token or email.');
         }
-
     }
     //get my login view and send request to database
     public function login()
