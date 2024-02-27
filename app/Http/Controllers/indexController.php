@@ -37,7 +37,7 @@ class indexController extends Controller
         ];
 
         // save token inside session 
-        session()->put('token', $token);
+        // session()->put('token', $token);
 
         // get the mail message here
         $data = ['message' => 'Hello, your one time password is ' . $token, 'username' => $request['username']];
@@ -52,12 +52,12 @@ class indexController extends Controller
             'password' => Hash::make($request->input('password')),
             'token' => $token['value'],
             // save token created at inside database 
-            'token_created_at' => $token['created_at'], 
+            'token_created_at' => $token['created_at'],
             // set this token confirm to unconfirm by default
             'is_confirmed' => false,
         ]);
-
-        session()->put('email', $request->email);
+        // put email inside session and token
+        session()->put('email', $request->email, 'token', $token);
 
         return view('regToken');
     }
