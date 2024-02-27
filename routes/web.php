@@ -37,6 +37,9 @@ Route::get('/login', [indexController::class, 'login'])->name('log');
 Route::post('/login', [indexController::class, 'loginCommand'])->name('loginCommand');
 
 
-// get my logout to display
+// get my logout function
 Route::get('/logout', [indexController::class, 'logout'])->name('logout');
+
+// get my delete account function
+Route::get('/deleteAccount', [indexController::class, 'deleteAccount'])->name('deleteAccount');
 

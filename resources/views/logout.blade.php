@@ -19,14 +19,24 @@
                 Hello, {{ auth()->user()->username }}
             </p>
 
-            <a href="{{ asset('/logout') }}">
-                <button type="submit"
-                    class="mt-5 tracking-wide font-semibold bg-indigo-500 text-gray-100 w-full py-2 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
-                    <span class="ml-3">
-                        Logout
-                    </span>
-                </button>
-            </a>
+            <div class="flex justify-around">
+                <a href="{{ asset('/logout') }}">
+                    <button type="submit"
+                        class="mt-5 tracking-wide font-semibold bg-indigo-500 text-gray-100 w-full py-2 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
+                        <span class="ml-3">
+                            Logout
+                        </span>
+                    </button>
+                </a>
+                <a href="{{ asset('/deleteAccount') }}">
+                    <button type="submit"
+                        class="mt-5 tracking-wide font-semibold bg-indigo-500 text-gray-100 w-full py-2 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
+                        <span class="ml-3">
+                            delete account
+                        </span>
+                    </button>
+                </a>
+            </div>
         </div>
     </div>
 </div>
