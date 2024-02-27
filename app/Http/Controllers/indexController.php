@@ -95,12 +95,27 @@ class indexController extends Controller
             'password' => 'required'
         ]);
 
-        // coinfirm the auth in database
-        $token = auth()->attempt(['email' => $request->email, 'password' => $request->password]);
-        if ($token) {
-            return 'login successful';
+        // pass the email and password into a variable to request just email and password
+        $credentials =  $request->only('email', 'password');
+
+        // try to get the user information from the database
+
+        if (auth()->attempt($credentials)) {
+
+            if (auth()->user()->is_confirmed) {
+
+                // check if the user is authenticated and confirmed
+                return 'Login successful';
+            } else {
+                // user account is not confirmed, don't login and redirect back
+                auth()->logout();
+
+                return redirect('login')->back()->with('error', 'Your account is not yet confirmed.');
+            }
         } else {
-            return redirect()->back()->with('message', 'Invalid login');
+
+            // authentication failed, redirect back with error message
+            return redirect()->back()->with('error', 'Invalid login credentials.');
         }
     }
 }
