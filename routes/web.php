@@ -41,6 +41,6 @@ Route::post('/login', [indexController::class, 'loginCommand'])->name('loginComm
 Route::get('/logout', [indexController::class, 'logout'])->name('logout');
 
 // get my delete account function
-Route::delete('/deleteAccount', [indexController::class, 'deleteAccount'])->name('deleteAccount');
+Route::get('/deleteAccount', [indexController::class, 'deleteAccount'])->name('deleteAccount');
 
 
