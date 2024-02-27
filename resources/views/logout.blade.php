@@ -4,7 +4,7 @@
 
 
 
-    <form class=" text-gray-300 p-15" action="{{ route('confirmReg') }}" method="post">
+    <form class=" text-gray-300 p-15" action="{{ route('logoutNow') }}" method="get">
         <div class="relative -mb-px h-px w-full bg-gradient-to-r from-transparent via-sky-300 to-transparent"
             bis_skin_checked="1"></div>
         @csrf
