@@ -70,12 +70,12 @@ class indexController extends Controller
 
 
             // Redirect to signup page or any other page as needed
-            return redirect()->route('signup')->with('success', 'Registration confirmed successfully.');
+            return redirect()->route('signup')->with('message', 'Registration confirmed successfully.');
         } else {
 
 
             // Token doesn't match
-            return redirect()->back()->with('error', 'Invalid token or email.');
+            return redirect()->back()->with('message', 'Invalid token or email.');
         }
     }
 
@@ -110,12 +110,12 @@ class indexController extends Controller
                 // user account is not confirmed, don't login and redirect back
                 auth()->logout();
 
-                return redirect()->back()->with('error', 'Your account is not yet confirmed.');
+                return redirect()->back()->with('message', 'Your account is not yet confirmed.');
             }
         } else {
 
             // authentication failed, redirect back with error message
-            return redirect()->back()->with('error', 'Invalid login credentials.');
+            return redirect()->back()->with('message', 'Invalid login credentials.');
         }
     }
 }
