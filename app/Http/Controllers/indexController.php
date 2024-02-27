@@ -91,12 +91,12 @@ class indexController extends Controller
     {
         // validate my login info
         $request->validate([
-            'username' => 'required',
+            'email' => 'required',
             'password' => 'required'
         ]);
 
         // coinfirm the auth in database
-        $token = auth()->attempt(['username' => $request->email, 'password' => $request->password]);
+        $token = auth()->attempt(['email' => $request->email, 'password' => $request->password]);
         if ($token) {
             return 'login successful';
         } else {
