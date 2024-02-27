@@ -37,7 +37,6 @@ class indexController extends Controller
         ];
 
         // save token inside session 
-        // session()->put('token', $token);
 
         // get the mail message here
         $data = ['message' => 'Hello, your one time password is ' . $token, 'username' => $request['username']];
@@ -57,7 +56,10 @@ class indexController extends Controller
             'is_confirmed' => false,
         ]);
         // put email inside session and token
-        session()->put('email', $request->email, 'token', $token);
+        session()->put('email', $request->email);
+        // put token inside session 
+        session()->put('token', $token);
+
 
         return view('regToken');
     }
@@ -73,8 +75,12 @@ class indexController extends Controller
     // get the account created after getting the token from gmail
     public function confirmReg(Request $request)
     {
-
+        // get email from session 
         $email = session()->get('email');
+        
+        // get token from session 
+        $token = session()->get('token');
+
         $request->validate(['token' => 'required']);
 
         $user = User::where('email', $email)->first();
