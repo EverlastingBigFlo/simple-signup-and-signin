@@ -132,6 +132,6 @@ class indexController extends Controller
         // return view('logout');
         auth()->logout();
         
-        return redirect()->route('login')->with('message', 'You have been logged out successfully.');
+        return redirect()->route('signup')->with('message', 'You have been logged out successfully.');
     }
 }
