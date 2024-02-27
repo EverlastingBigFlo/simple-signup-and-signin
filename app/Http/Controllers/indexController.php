@@ -54,7 +54,7 @@ class indexController extends Controller
 
 
     // get the account created after getting the token from gmail
-    public function tokenCommand(Request $request)
+    public function confirmReg(Request $request)
     {
         $request->validate(['token' => 'required']);
 

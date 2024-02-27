@@ -27,8 +27,8 @@ Route::post('/signup', [indexController::class, 'signupCommand'])->name('signupC
 //get regToken view display
 Route::get('/regToken',[indexController::class, 'regToken'])->name('regToken');
 
-//get token commmand
-Route::post('/regToken',[indexController::class, 'tokenCommand'])->name('tokenCommand');
+//get confirm registration commmand
+Route::post('/regToken',[indexController::class, 'confirmReg'])->name('confirmReg');
 
 // get my login to display
 Route::get('/login', [indexController::class, 'login'])->name('log');
