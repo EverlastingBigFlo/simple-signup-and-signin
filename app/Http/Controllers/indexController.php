@@ -97,9 +97,11 @@ class indexController extends Controller
 
         // pass the email and password into a variable to request just email and password
         $credentials =  $request->only('email', 'password');
+        // $credentials = auth()->attempt(['email' => $request->email, 'password' => $request->password]);
+
 
         // try to get the user information from the database
-        // $credentials['is_confirmed'] = true;
+        $credentials['is_confirmed'] = true;
 
         if (auth()->attempt($credentials)) {
 
