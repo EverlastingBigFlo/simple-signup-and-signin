@@ -26,7 +26,7 @@
                         <h1>{{ session()->get('message') }}</h1>
                     @endif
                 </small>
-                
+
 
                 <!-- Email input -->
                 <div class="relative mb-6">
