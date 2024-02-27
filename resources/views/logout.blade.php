@@ -38,12 +38,14 @@
                 </a> --}}
                 <form action="{{ route('deleteAccount') }}" method="POST">
                     @csrf
+                    <input type="hidden" name="email" value="{{ auth()->user()->email }}">
                     <button type="submit" class="mt-5 tracking-wide font-semibold bg-indigo-500 text-gray-100 w-full py-2 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
                         <span class="ml-3">
                             Delete Account
                         </span>
                     </button>
                 </form>
+                
                 
                 {{-- <form action="{{ route('deleteAccount', ['id' => auth()->user()->id]) }}" method="POST">
                 @csrf
