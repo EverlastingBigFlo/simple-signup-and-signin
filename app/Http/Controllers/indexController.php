@@ -62,11 +62,15 @@ class indexController extends Controller
     {
         $request->validate(['token' => 'required']);
 
-        if ($request) {
+        $user = User::where('token', $request->token)->first();
 
-            // $user->update(['token' => $token]);
+        if ($user) {
 
-            return redirect()->route('signup');
+            $user->update(['is_confirmed' => true]);
+
+
+            // Redirect to signup page or any other page as needed
+            return redirect()->route('signup')->with('success', 'Registration confirmed successfully.');
         } else {
 
 
