@@ -129,7 +129,7 @@ class indexController extends Controller
 
     public function logout()
     {
-        return view('logout');
+        // return view('logout');
         auth()->logout();
         
         return redirect()->route('login')->with('message', 'You have been logged out successfully.');
