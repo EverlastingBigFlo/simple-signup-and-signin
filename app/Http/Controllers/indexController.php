@@ -92,8 +92,8 @@ class indexController extends Controller
             // Check if token has expired
             if (Carbon::parse($token['created_at'])->addMinutes(1)->isPast()) {
                 // Token has expired
-                $user->delete();
-                
+                $user->delete(); 
+                session()->remove('email');
                 session()->remove('token');
                 return redirect()->route('signup')->with('message', 'Token has expired. Please sign up again.');
             }
@@ -101,6 +101,8 @@ class indexController extends Controller
             $user->is_confirmed = true;
             $user->save();
             session()->remove('email');
+            session()->remove('token');
+
 
             // Redirect to signup page or any other page as needed
             return redirect()->route('signup')->with('message', 'Registration confirmed successfully.');
