@@ -16,7 +16,8 @@
 
 
                 <p class="m-5 text-sm font-medium text-white/50">
-                    Welcome, <p>{{ session()->get('username')}}</p>
+                    <h2>Hello {{$username}}</h2>
+                    {{-- <p class=" text-white">{{ session()->get('username')}}</p> --}}
                 </p>
 
 

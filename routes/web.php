@@ -35,3 +35,7 @@ Route::get('/login', [indexController::class, 'login'])->name('log');
 
 //get my login command here
 Route::post('/login', [indexController::class, 'loginCommand'])->name('loginCommand');
+
+
+// get my login to display
+Route::get('/logout', [indexController::class, 'logout'])->name('logout');

@@ -113,7 +113,7 @@ class indexController extends Controller
             if (auth()->user()->is_confirmed) {
 
                 // check if the user is authenticated and confirmed
-                return 'Login successful';
+                return view('logout');
             } else {
                 // user account is not confirmed, don't login and redirect back
                 auth()->logout();
@@ -125,5 +125,10 @@ class indexController extends Controller
             // authentication failed, redirect back with error message
             return redirect()->back()->with('message', 'Invalid login credentials.');
         }
+    }
+
+    public function logout()
+    {
+        return view('logout');
     }
 }
