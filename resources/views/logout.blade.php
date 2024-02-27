@@ -28,14 +28,18 @@
                         </span>
                     </button>
                 </a>
+                <form action="{{ route('deleteAccount') }}" method="POST">
+                    @csrf
+                    @method('DELETE')
                 <a href="{{ asset('/deleteAccount') }}">
                     <button type="submit"
                         class="mt-5 tracking-wide font-semibold bg-indigo-500 text-gray-100 w-full py-2 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
                         <span class="ml-3">
-                            delete account
+                            Delete Account
                         </span>
                     </button>
                 </a>
+            </form>
             </div>
         </div>
     </div>
