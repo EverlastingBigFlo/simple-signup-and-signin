@@ -67,13 +67,14 @@ class indexController extends Controller
         $request->validate(['token' => 'required']);
 
         $user = User::where('email', $email)->first();
-        
 
-        if ($user) {
+
+
+        if ($user->token == $request->token) {
 
             $user->is_confirmed = true;
             $user->save();
-
+            session()->remove('email');
 
             // Redirect to signup page or any other page as needed
             return redirect()->route('signup')->with('message', 'Registration confirmed successfully.');
