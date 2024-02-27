@@ -41,7 +41,9 @@ class indexController extends Controller
             'name' => $request->input('name'),
             'email' => $request->input('email'),
             'password' => Hash::make($request->input('password')),
-            'token' => $token
+            'token' => $token,
+
+            'is_confirmed' => false,
         ]);
 
         return view('regToken');
