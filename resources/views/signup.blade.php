@@ -6,7 +6,7 @@
             <div class="mt-3 flex flex-col items-center">
                 <div class="w-full flex-1 mt-8">
                     <div class="flex flex-col items-center">
-                        <small class=" text-green-600   ">
+                        <small class=" text-green-600  ">
                             {{-- where to route to when the account is being registered to the database --}}
                             @if (session()->has('message'))
                                 <h1>{{ session()->get('message') }}</h1>
