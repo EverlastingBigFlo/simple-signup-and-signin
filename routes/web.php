@@ -25,10 +25,10 @@ Route::get('/signup', [indexController::class, 'signup'])->name('signup');
 Route::post('/signup', [indexController::class, 'signupCommand'])->name('signupCommand');
 
 //get regToken view display
-Route::get('/regToken',[indexController::class, 'regToken'])->name('regToken');
+Route::get('/regToken', [indexController::class, 'regToken'])->name('regToken');
 
 //get confirm registration commmand
-Route::post('/regToken',[indexController::class, 'confirmReg'])->name('confirmReg');
+Route::post('/regToken', [indexController::class, 'confirmReg'])->name('confirmReg');
 
 // get my login to display
 Route::get('/login', [indexController::class, 'login'])->name('log');
@@ -41,6 +41,4 @@ Route::post('/login', [indexController::class, 'loginCommand'])->name('loginComm
 Route::get('/logout', [indexController::class, 'logout'])->name('logout');
 
 // get my delete account function
-Route::get('/deleteAccount', [indexController::class, 'deleteAccount'])->name('deleteAccount');
-
-
+Route::post('/deleteAccount', [indexController::class, 'deleteAccount'])->name('deleteAccount');
