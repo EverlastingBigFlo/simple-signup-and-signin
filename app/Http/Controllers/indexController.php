@@ -66,7 +66,7 @@ class indexController extends Controller
 
         if ($user) {
 
-            $user->update(['is_confirmed' => true]);
+            $user->is_confirmed = true;
             $user->save();
 
 
