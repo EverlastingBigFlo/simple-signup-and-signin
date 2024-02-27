@@ -67,6 +67,7 @@ class indexController extends Controller
         if ($user) {
 
             $user->update(['is_confirmed' => true]);
+            $user->save();
 
 
             // Redirect to signup page or any other page as needed
