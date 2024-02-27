@@ -30,11 +30,13 @@ class indexController extends Controller
         $token = rand(100000, 900000);
 
 
-        // send token to mail
+        // get the mail message here
         $data = ['message' => 'Hello, your one time password is ' . $token, 'name' => $request['name']];
+
+        //send message to mail
         Mail::to($request['email'])->send(new regToken($data));
 
-        // send user with the token to the database
+        // send user including the token generated to the database
         User::create([
             'name' => $request->input('name'),
             'email' => $request->input('email'),
