@@ -17,7 +17,6 @@
 
                 <p class="m-5 text-sm font-medium text-white/50">
                     <h2>Hello {{$username}}</h2>
-                    {{-- <p class=" text-white">{{ session()->get('username')}}</p> --}}
                 </p>
 
 
@@ -44,7 +43,7 @@
                         <path d="M20 8v6M23 11h-6" />
                     </svg>
                     <span class="ml-3">
-                        Sign Up
+                        Logout
                     </span>
                 </button>
             </div>
