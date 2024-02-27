@@ -58,19 +58,20 @@ class indexController extends Controller
     {
         $request->validate(['token' => 'required']);
 
-        $user = User::where('token', $request->token)->first();
-        if ($user) {
+        if ($request) {
 
             // $user->update(['token' => $token]);
 
             return redirect()->route('signup');
         } else {
 
-            
+
             // Token doesn't match
             return redirect()->back()->with('error', 'Invalid token or email.');
         }
     }
+
+
     //get my login view and send request to database
     public function login()
     {
@@ -95,4 +96,3 @@ class indexController extends Controller
         }
     }
 }
-    
