@@ -77,7 +77,7 @@ class indexController extends Controller
             session()->remove('email');
 
             // Redirect to signup page or any other page as needed
-            return redirect()->route('signup')->with('message', 'Registration confirmed successfully.');
+            return redirect()->route('login')->with('message', 'Registration confirmed successfully.');
         } else {
 
 
