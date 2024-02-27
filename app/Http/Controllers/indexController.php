@@ -20,7 +20,7 @@ class indexController extends Controller
     {
         // validating my request
         $request->validate([
-            'username' => 'required',
+            'username' => 'required|unique:users',
             'email' => 'required|email|unique:users',
             'password' => 'required|confirmed|min:6',
             'password_confirmation' => 'required',
@@ -91,12 +91,12 @@ class indexController extends Controller
     {
         // validate my login info
         $request->validate([
-            'email' => 'required',
+            'username' => 'required',
             'password' => 'required'
         ]);
 
         // coinfirm the auth in database
-        $token = auth()->attempt(['email' => $request->email, 'password' => $request->password]);
+        $token = auth()->attempt(['username' => $request->email, 'password' => $request->password]);
         if ($token) {
             return 'login successful';
         } else {
