@@ -140,7 +140,7 @@ class indexController extends Controller
     public function deleteAccount(User $user)
     {
         // return view('logout');
-        $user->delete();
+        return $user->delete();
         
         return redirect()->route('signup')->with('message', 'Sad to see you leave.');
     }
