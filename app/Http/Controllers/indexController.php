@@ -38,7 +38,7 @@ class indexController extends Controller
 
         // save token inside session 
         session()->put('token', $token);
-        
+
         // get the mail message here
         $data = ['message' => 'Hello, your one time password is ' . $token, 'username' => $request['username']];
 
@@ -50,7 +50,9 @@ class indexController extends Controller
             'username' => $request->input('username'),
             'email' => $request->input('email'),
             'password' => Hash::make($request->input('password')),
-            'token' => $token,
+            'token' => $token['value'],
+            // save token created at inside database 
+            'token_created_at' => $token['created_at'], 
             // set this token confirm to unconfirm by default
             'is_confirmed' => false,
         ]);
