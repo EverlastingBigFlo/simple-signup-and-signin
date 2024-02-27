@@ -66,6 +66,7 @@ class indexController extends Controller
             return redirect()->route('signup');
         } else {
 
+            
             // Token doesn't match
             return redirect()->back()->with('error', 'Invalid token or email.');
         }
