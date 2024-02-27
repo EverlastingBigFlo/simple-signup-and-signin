@@ -14,9 +14,14 @@
              border-r-white/20 sm:shadow-sm lg:rounded-xl lg:shadow-none">
             <div class="p-6">
 
-                <p class="m-5 text-sm font-medium text-white/50">Welcome, please input the code sent to
-                <h3>{{ session()->get('email') }}</h3> to
-                set up your account.</p>
+
+                <p class="m-5 text-sm font-medium text-white/50">
+                    Welcome, please input the code sent to
+                    <small
+                        class=" text-white">{{ substr(session()->get('email'), 0, 3) . '***' . substr(session()->get('email'), -8) }}</small>
+                    to set up your account.
+                </p>
+
 
                 <!-- Email input -->
                 <div class="relative mb-6">
