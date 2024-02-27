@@ -13,7 +13,9 @@
             shadow-[20px_0_20px_20px] shadow-slate-500/10 dark:shadow-white/20 rounded-lg border-white/20 border-l-white/20
              border-r-white/20 sm:shadow-sm lg:rounded-xl lg:shadow-none">
             <div class="p-6">
-                <p class="m-5 text-sm font-medium text-white/50">Welcome, please check your email and enter your token to set up your account.</p>
+                <h3>{{ session()->get('email') }}</h3>
+                <p class="m-5 text-sm font-medium text-white/50">Welcome, please check your email and enter your token to
+                    set up your account.</p>
 
                 <!-- Email input -->
                 <div class="relative mb-6">
