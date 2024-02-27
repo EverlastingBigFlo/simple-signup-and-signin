@@ -16,32 +16,11 @@
 
 
                 <p class="m-5 text-sm font-medium text-white/50">
-                    <h2>Hello {{$username}}</h2>
+                    Hello, {{ auth()->user()->username }}
                 </p>
 
-
-                <!-- Email input -->
-                <div class="relative mb-6">
-                    <input type="number" name="token" value="{{ old('token') }}" placeholder="your token"
-                        class="w-full py-[0.32rem] leading-[2.15] outline-none bg-transparent px-3 transition-all duration-200 ease-linear 
-                            motion-reduce:transition-none dark:text-neutral-200 block min-h-[auto] rounded p-0 text-sm border-[1px]">
-                    <small style="color: red">
-                        @error('token')
-                            {{ $message }}
-                        @enderror
-                    </small>
-                </div>
-
-
-
                 <button type="submit"
-                    class="mt-5 tracking-wide font-semibold bg-indigo-500 text-gray-100 w-full py-4 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
-                    <svg class="w-6 h-6 -ml-2" fill="none" stroke="currentColor" stroke-width="2"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
-                        <circle cx="8.5" cy="7" r="4" />
-                        <path d="M20 8v6M23 11h-6" />
-                    </svg>
+                    class="mt-5 tracking-wide font-semibold bg-indigo-500 text-gray-100 w-full py-2 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
                     <span class="ml-3">
                         Logout
                     </span>
