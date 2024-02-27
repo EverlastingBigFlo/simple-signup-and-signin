@@ -110,12 +110,12 @@ class indexController extends Controller
                 // user account is not confirmed, don't login and redirect back
                 auth()->logout();
 
-                return redirect()->back('login')->with('error', 'Your account is not yet confirmed.');
+                return redirect()->back()->with('error', 'Your account is not yet confirmed.');
             }
         } else {
 
             // authentication failed, redirect back with error message
-            return redirect()->back('login')->with('error', 'Invalid login credentials.');
+            return redirect()->back()->with('error', 'Invalid login credentials.');
         }
     }
 }
