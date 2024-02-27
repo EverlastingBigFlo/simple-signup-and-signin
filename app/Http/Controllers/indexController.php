@@ -77,7 +77,7 @@ class indexController extends Controller
     {
         // get email from session 
         $email = session()->get('email');
-        
+
         // get token from session 
         $token = session()->get('token');
 
@@ -87,7 +87,10 @@ class indexController extends Controller
 
 
 
-        if ($user->token == $request->token) {
+        // if ($user->token == $request->token) 
+        if ($token && $user && $user->token === $request->token)
+        {
+            
 
             $user->is_confirmed = true;
             $user->save();
