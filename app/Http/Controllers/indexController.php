@@ -64,9 +64,11 @@ class indexController extends Controller
     {
 
         $email = session()->get('email');
-        
+
+        // validate the token input 
         $request->validate(['token' => 'required']);
 
+        // get user by email 
         $user = User::where('email', $email)->first();
 
 
