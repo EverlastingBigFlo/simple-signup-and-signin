@@ -110,7 +110,7 @@ class indexController extends Controller
     {
         // Find unconfirmed users whose tokens have expired
         $expiredUsers = User::where('is_confirmed', false)
-            ->where('created_at', '<=', now()->subMinutes(1)) // Assuming token expiration time is 1 minute
+            ->where('created_at', '<=', now()->subMinutes(1))
             ->get();
 
         foreach ($expiredUsers as $user) {
