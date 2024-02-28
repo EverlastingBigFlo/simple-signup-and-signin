@@ -81,7 +81,7 @@ class indexController extends Controller
         if (now()->gt($tokenExpirationTime)) {
             // Token has expired, sign out user and delete from session
             auth()->logout();
-            
+
             session()->forget('email');
 
             return redirect()->route('signup')->with('message', 'Token has expired. Please sign up again.');
@@ -105,7 +105,22 @@ class indexController extends Controller
         }
     }
 
+    // In a scheduled task or cron job
+    public function deleteExpiredTokens()
+    {
+        // Find unconfirmed users whose tokens have expired
+        $expiredUsers = User::where('is_confirmed', false)
+            ->where('created_at', '<=', now()->subMinutes(1)) // Assuming token expiration time is 1 minute
+            ->get();
 
+        foreach ($expiredUsers as $user) {
+            // Log out user
+            auth()->logout();
+
+            // Delete user
+            $user->delete();
+        }
+    }
 
 
 
