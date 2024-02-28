@@ -87,7 +87,8 @@ class indexController extends Controller
             // Token has expired, sign out user and delete from session
             auth()->logout();
             session()->forget('email');
-
+            // Call the method using $this
+            $this->deleteExpiredTokens();
 
             return redirect()->route('signup')->with('message', 'Token has expired. Please sign up again.');
         }
@@ -102,8 +103,7 @@ class indexController extends Controller
             $user->is_confirmed = true;
             $user->save();
             session()->remove('email');
-            // Call the method using $this
-            $this->deleteExpiredTokens();
+
 
             // Redirect to signup page or any other page as needed
             return redirect()->route('signup')->with('message', 'Registration confirmed successfully.');
