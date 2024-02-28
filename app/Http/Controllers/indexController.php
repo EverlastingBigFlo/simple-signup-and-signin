@@ -66,7 +66,6 @@ class indexController extends Controller
 
 
     // get the account created after getting the token from gmail
-    // get the account created after getting the token from gmail
 public function confirmReg(Request $request)
 {
     // Retrieve email from session
