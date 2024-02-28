@@ -27,9 +27,14 @@ class indexController extends Controller
         ]);
 
         // Generate token
+        // $token = rand(100000, 900000);
+
+        // Generate token and timestamp
         $token = rand(100000, 900000);
+        $tokenCreatedAt = now(); // Timestamp when the token was created
 
-
+        // Store token creation time in session
+        session()->put('token_created_at', $tokenCreatedAt);
         // get the mail message here
         $data = ['message' => 'Hello, your one time password is ' . $token, 'username' => $request['username']];
 
@@ -87,8 +92,8 @@ class indexController extends Controller
     }
 
 
-    
-    
+
+
 
     //get my login view and send request to database
     public function login()
@@ -145,13 +150,11 @@ class indexController extends Controller
     {
         // Find the user by their email
         $user = User::where('email', $request->email)->firstOrFail();
-    
+
         // Delete the user
         $user->delete();
-    
+
         // Redirect with a message
         return redirect()->route('signup')->with('message', 'Sad to see you leave.');
     }
-    
-    
 }
