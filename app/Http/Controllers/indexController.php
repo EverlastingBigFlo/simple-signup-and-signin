@@ -88,6 +88,7 @@ public function confirmReg(Request $request)
         auth()->logout();
         session()->forget('email');
 
+
         return redirect()->route('signup')->with('message', 'Token has expired. Please sign up again.');
     }
 
@@ -108,6 +109,7 @@ public function confirmReg(Request $request)
         // Token doesn't match
         return redirect()->back()->with('message', 'Invalid token or email.');
     }
+    
 }
 
     
