@@ -35,6 +35,7 @@ class indexController extends Controller
 
         // Store token creation time in session
         session()->put('token_created_at', $tokenCreatedAt);
+
         // get the mail message here
         $data = ['message' => 'Hello, your one time password is ' . $token, 'username' => $request['username']];
 
