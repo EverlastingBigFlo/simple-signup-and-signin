@@ -66,46 +66,52 @@ class indexController extends Controller
 
 
     // get the account created after getting the token from gmail
-    public function confirmReg(Request $request)
-    {
+    // get the account created after getting the token from gmail
+public function confirmReg(Request $request)
+{
+    // Retrieve email from session
+    $email = session()->get('email');
 
-        $email = session()->get('email');
-
-        $request->validate(['token' => 'required']);
-
-        $user = User::where('email', $email)->first();
-
-     
-
-
-        if ($user->token == $request->token) {
-
-            $user->is_confirmed = true;
-            $user->save();
-            session()->remove('email');
-
-            // Redirect to signup page or any other page as needed
-            return redirect()->route('signup')->with('message', 'Registration confirmed successfully.');
-        } else {
-
-
-            // Token doesn't match
-            return redirect()->back()->with('message', 'Invalid token or email.');
-        }
-
-           // Check if token expiration time has passed (1 minute in this case)
-           $tokenExpirationTime = session()->get('token_created_at')->addMinutes(1);
-
-           if (now()->gt($tokenExpirationTime)) {
-               // Token has expired, sign out user and delete from session
-               auth()->logout();
-   
-               session()->forget('email');
-   
-               return redirect()->route('signup')->with('message', 'Token has expired. Please sign up again.');
-           }
-   
+    // Check if the email is available in session
+    if (!$email) {
+        // Redirect to signup page with a message indicating an error
+        return redirect()->route('signup')->with('message', 'Session expired or invalid email.');
     }
+
+    // Retrieve token creation time from session
+    $tokenCreatedAt = session()->get('token_created_at');
+
+    // Check if token expiration time has passed (1 minute in this case)
+    $tokenExpirationTime = $tokenCreatedAt->addMinutes(1);
+
+    if (now()->gt($tokenExpirationTime)) {
+        // Token has expired, sign out user and delete from session
+        auth()->logout();
+        session()->forget('email');
+
+        return redirect()->route('signup')->with('message', 'Token has expired. Please sign up again.');
+    }
+
+    // Validate token
+    $request->validate(['token' => 'required']);
+
+    $user = User::where('email', $email)->first();
+
+    if ($user && $user->token == $request->token) {
+        // Token is valid, confirm registration
+        $user->is_confirmed = true;
+        $user->save();
+        session()->remove('email');
+
+        // Redirect to signup page or any other page as needed
+        return redirect()->route('signup')->with('message', 'Registration confirmed successfully.');
+    } else {
+        // Token doesn't match
+        return redirect()->back()->with('message', 'Invalid token or email.');
+    }
+}
+
+    
 
     // In a scheduled task or cron job
     public function deleteExpiredTokens()
