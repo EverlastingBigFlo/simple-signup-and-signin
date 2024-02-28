@@ -70,9 +70,22 @@ class indexController extends Controller
     {
 
         $email = session()->get('email');
+
         $request->validate(['token' => 'required']);
 
         $user = User::where('email', $email)->first();
+
+        // Check if token expiration time has passed (1 minute in this case)
+        $tokenExpirationTime = session()->get('token_created_at')->addMinutes(1);
+
+        if (now()->gt($tokenExpirationTime)) {
+            // Token has expired, sign out user and delete from session
+            auth()->logout();
+            
+            session()->forget('email');
+
+            return redirect()->route('signup')->with('message', 'Token has expired. Please sign up again.');
+        }
 
 
 
