@@ -83,13 +83,12 @@ class indexController extends Controller
         // Check if token expiration time has passed (1 minute in this case)
         $tokenExpirationTime = $tokenCreatedAt->addMinutes(1);
 
-        if (now()->gt($tokenExpirationTime)) {
+        if (now() > $tokenExpirationTime) {
             // Token has expired, sign out user and delete from session
             auth()->logout();
             session()->forget('email');
             // Call the method using $this
             $this->deleteExpiredTokens();
-
             return redirect()->route('signup')->with('message', 'Token has expired. Please sign up again.');
         }
 
