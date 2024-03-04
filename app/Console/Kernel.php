@@ -12,9 +12,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule): void
     {
-        $schedule->call(function () {
-           info('called every minutes');
-        })->everyTwoHours();
+        $schedule->command('hello:world')->everyMinute();
     }
 
     /**
