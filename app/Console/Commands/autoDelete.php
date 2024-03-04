@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Models\User;
 use Illuminate\Console\Command;
 
 class autoDelete extends Command
@@ -25,6 +26,6 @@ class autoDelete extends Command
      */
     public function handle()
     {
-        //
+        $deletedCount = User::where('expiry_date', '<', now())->delete();
     }
 }
