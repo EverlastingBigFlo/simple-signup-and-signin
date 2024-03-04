@@ -77,27 +77,6 @@ class indexController extends Controller
             // Redirect to signup page with a message indicating an error
             return redirect()->route('signup')->with('message', 'Session expired or invalid email.');
         }
-
-        // Retrieve token creation time from session
-        $tokenCreatedAt = session()->get('created_at');
-
-        // Check if token expiration time has passed (1 minute in this case)
-        $tokenExpirationTime = $tokenCreatedAt->addMinutes(1);
-
-        if (now() > $tokenExpirationTime) {
-            // Token has expired, delete user and sign out
-            $user = User::where('email', $email)->first();
-
-            if ($user) {
-                $user->delete();
-            }
-
-            auth()->logout();
-            session()->forget('email');
-
-            return redirect()->route('signup')->with('message', 'Token has expired. Please sign up again.');
-        }
-
         // Validate token
         $request->validate(['token' => 'required']);
 
@@ -119,7 +98,10 @@ class indexController extends Controller
     }
 
 
-
+function AutoDelete()
+{
+    
+}
     //get my login view and send request to database
     public function login()
     {
