@@ -22,17 +22,17 @@ class Kernel extends ConsoleKernel
      */
     protected function commands(): void
     {
-        $this->load(__DIR__.'/Commands');
+        $this->load(__DIR__ . '/Commands');
 
         require base_path('routes/console.php');
 
-          // Register your command here
-    $this->app->singleton('command.auto-delete', function ($app) {
-        return $app->make(autoDelete::class);
-    });
+        // Register your command here
+        $this->app->singleton('command.auto-delete', function ($app) {
+            return $app->make(autoDelete::class);
+        });
 
-    $this->commands([
-        'command.auto-delete',
-    ]);
+        $this->commands([
+            'command.auto-delete',
+        ]);
     }
 }
