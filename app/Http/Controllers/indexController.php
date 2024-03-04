@@ -50,6 +50,7 @@ class indexController extends Controller
             'token' => $token,
             // set this token confirm to unconfirm by default
             'is_confirmed' => false,
+            'token_created_at' => $tokenCreatedAt,
         ]);
 
         session()->put('email', $request->email);
