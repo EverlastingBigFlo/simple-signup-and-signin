@@ -11,14 +11,14 @@ class autoDelete extends Command
      *
      * @var string
      */
-    protected $signature = 'autoDelete';
+    protected $signature = 'auto-Delete';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Automatically delete expired records from the database';
 
     /**
      * Execute the console command.
