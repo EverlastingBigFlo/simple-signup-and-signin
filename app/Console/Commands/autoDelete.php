@@ -25,24 +25,6 @@ class autoDelete extends Command
      * Execute the console command.
      */
     public function handle()
-{
-    // Retrieve email from session
-    // $email = session()->get('email');
-    // Retrieve token creation time from session
-    $tokenCreatedAt = session()->get('created_at');
-
-    // Check if token expiration time has passed (1 minute in this case)
-    session()->put('created_at', now());
-
-    if (now() > $tokenCreatedAt) {
-        // Token has expired, log an error message
-        $this->error('Token has expired. Please sign up again.');
-        
-        // You can also perform additional actions here if needed
-        
-        // Clear session data (optional)
-        session()->forget('email');
+    {
     }
-}
-
 }
