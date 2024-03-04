@@ -11,7 +11,7 @@ class helloWorld extends Command
      *
      * @var string
      */
-    protected $signature = 'app:hello-world';
+    protected $signature = 'hello-world';
 
     /**
      * The console command description.
