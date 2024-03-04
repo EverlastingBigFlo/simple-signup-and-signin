@@ -14,7 +14,7 @@ class Kernel extends ConsoleKernel
     {
         $schedule->call(function () {
            info('called every minutes');
-        })->everyMinute();
+        })->everyTwoHours();
     }
 
     /**
