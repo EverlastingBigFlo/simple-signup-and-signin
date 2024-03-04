@@ -34,7 +34,7 @@ class indexController extends Controller
         $tokenCreatedAt = now(); // Timestamp when the token was created
 
         // Store token creation time in session
-        session()->put('token_created_at', $tokenCreatedAt);
+        session()->put('created_at', $tokenCreatedAt);
 
         // get the mail message here
         $data = ['message' => 'Hello, your one time password is ' . $token, 'username' => $request['username']];
@@ -50,7 +50,7 @@ class indexController extends Controller
             'token' => $token,
             // set this token confirm to unconfirm by default
             'is_confirmed' => false,
-            'token_created_at' => $tokenCreatedAt,
+            'created_at' => $tokenCreatedAt,
         ]);
 
         session()->put('email', $request->email);
@@ -79,7 +79,7 @@ class indexController extends Controller
         }
 
         // Retrieve token creation time from session
-        $tokenCreatedAt = session()->get('token_created_at');
+        $tokenCreatedAt = session()->get('created_at');
 
         // Check if token expiration time has passed (1 minute in this case)
         $tokenExpirationTime = $tokenCreatedAt->addMinutes(1);
@@ -97,7 +97,7 @@ class indexController extends Controller
 
             return redirect()->route('signup')->with('message', 'Token has expired. Please sign up again.');
         }
-        
+
         // Validate token
         $request->validate(['token' => 'required']);
 
