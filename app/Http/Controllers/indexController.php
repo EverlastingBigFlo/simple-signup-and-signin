@@ -98,10 +98,9 @@ class indexController extends Controller
     }
 
 
-function AutoDelete()
-{
-    
-}
+    function AutoDelete()
+    {
+    }
     //get my login view and send request to database
     public function login()
     {
