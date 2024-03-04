@@ -25,7 +25,7 @@ class helloWorld extends Command
      */
     public function handle()
     {
-        info('hello world');
+        info('Hello world');
         return 0;
     }
 }
