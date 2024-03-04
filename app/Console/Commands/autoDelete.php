@@ -3,7 +3,9 @@
 namespace App\Console\Commands;
 
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Log;
 
 class autoDelete extends Command
 {
@@ -38,26 +40,13 @@ class autoDelete extends Command
      */
     public function handle()
     {
-        // Retrieve email from session
-        $email = session()->get('email');
-        // Retrieve token creation time from session
-        $tokenCreatedAt = session()->get('created_at');
+        $now = Carbon::now();
 
-        // Check if token expiration time has passed (1 minute in this case)
-        $tokenExpirationTime = $tokenCreatedAt->addMinutes(1);
+        User::table('email')
+            ->where('is_confirmed', '=', false)
+            ->where('created_at', '<', $now->subMinutes(1))
+            ->delete();
 
-        if (now() > $tokenExpirationTime) {
-            // Token has expired, delete user and sign out
-            $user = User::where('email', $email)->first();
-
-            if ($user) {
-                $user->delete();
-            }
-
-            auth()->logout();
-            session()->forget('email');
-
-            $this->info('Expired records deleted successfully.');
-        }
+        Log::info('Expired reservations deleted successfully');
     }
 }
