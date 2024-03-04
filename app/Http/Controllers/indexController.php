@@ -120,25 +120,6 @@ class indexController extends Controller
 
 
 
-    // In a scheduled task or cron job
-    // public function deleteExpiredTokens()
-    // {
-    //     // Find unconfirmed users whose tokens have expired
-    //     $expiredUsers = User::where('is_confirmed', false)
-    //         ->where('created_at', '<=', now()->subMinutes(1))
-    //         ->get();
-
-    //     foreach ($expiredUsers as $user) {
-    //         // Log out user
-    //         auth()->logout();
-
-    //         // Delete user
-    //         $user->delete();
-    //     }
-    // }
-
-
-
     //get my login view and send request to database
     public function login()
     {
