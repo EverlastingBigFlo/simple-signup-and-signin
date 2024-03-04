@@ -32,7 +32,8 @@ class autoDelete extends Command
         $tokenCreatedAt = session()->get('created_at');
 
         // Check if token expiration time has passed (1 minute in this case)
-        $tokenExpirationTime = $tokenCreatedAt->addMinutes(1);
+        // $tokenExpirationTime = $tokenCreatedAt->addMinutes(1);
+        $tokenExpirationTime = session()->put('created_at', now());
 
         if (now() > $tokenExpirationTime) {
             // Token has expired, delete user and sign out
