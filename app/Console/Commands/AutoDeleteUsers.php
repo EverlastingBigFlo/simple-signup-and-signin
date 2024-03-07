@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Http\Controllers\indexController;
 use Illuminate\Console\Command;
 
 class AutoDeleteUsers extends Command
@@ -18,13 +19,17 @@ class AutoDeleteUsers extends Command
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Auto Delete User from Database';
 
     /**
      * Execute the console command.
      */
     public function handle()
     {
-        //
+        // Instantiate the indexController
+        $controller = new indexController();
+
+        // Call the autoDelete method
+        $controller->autoDelete();
     }
 }
