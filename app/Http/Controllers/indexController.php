@@ -67,31 +67,31 @@ class indexController extends Controller
 
 
     // to auto delete user if not confirmed
-    public function autoDelete()
-    {
+    // public function autoDelete()
+    // {
 
-        // Retrieve email from session
-        $email = session()->get('email');
-        // Retrieve token creation time from session
-        $tokenCreatedAt = session()->get('created_at');
+    //     // Retrieve email from session
+    //     $email = session()->get('email');
+    //     // Retrieve token creation time from session
+    //     $tokenCreatedAt = session()->get('created_at');
 
-        // Check if token expiration time has passed (1 minute in this case)
-        $tokenExpirationTime = $tokenCreatedAt->addMinutes(1);
+    //     // Check if token expiration time has passed (1 minute in this case)
+    //     $tokenExpirationTime = $tokenCreatedAt->addMinutes(1);
 
-        if (now() > $tokenExpirationTime) {
-            // Token has expired, delete user and sign out
-            $user = User::where('email', $email)->first();
+    //     if (now() > $tokenExpirationTime) {
+    //         // Token has expired, delete user and sign out
+    //         $user = User::where('email', $email)->first();
 
-            if ($user) {
-                $user->delete();
-            }
+    //         if ($user) {
+    //             $user->delete();
+    //         }
 
-            auth()->logout();
-            session()->forget('email');
+    //         auth()->logout();
+    //         session()->forget('email');
 
-            return redirect()->route('signup')->with('message', 'Token has expired. Please sign up again.');
-        }
-    }
+    //         return redirect()->route('signup')->with('message', 'Token has expired. Please sign up again.');
+    //     }
+    // }
 
     // get the account created after getting the token from gmail
     public function confirmReg(Request $request)
