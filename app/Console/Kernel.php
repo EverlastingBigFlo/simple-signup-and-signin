@@ -15,7 +15,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule): void
     {
         // Schedule your command to run every minute
-        $schedule->command('users:auto-delete')->everyMinute();
+        $schedule->command('users:auto:delete')->everyMinute();
     }
 
 
