@@ -4,14 +4,14 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 
-class autoDeleteUser extends Command
+class AutoDeleteUsers extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'app:auto-delete-user';
+    protected $signature = 'app:auto-delete-users';
 
     /**
      * The console command description.
