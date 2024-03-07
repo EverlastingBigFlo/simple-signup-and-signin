@@ -14,7 +14,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule): void
     {
-        // $schedule->command('auto-Delete')->everyMinute()->withoutOverlapping();
+
     }
 
     /**
@@ -26,13 +26,5 @@ class Kernel extends ConsoleKernel
 
         require base_path('routes/console.php');
 
-        // Register your command here
-        // $this->app->singleton('command.auto-delete', function ($app) {
-        //     return $app->make(autoDelete::class);
-        // });
-
-        // $this->commands([
-        //     'command.auto-delete',
-        // ]);
     }
 }
