@@ -4,7 +4,6 @@ namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
-use App\Console\Commands\AutoDeleteUsers;
 
 
 class Kernel extends ConsoleKernel
@@ -15,7 +14,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule): void
     {
         // Schedule your command to run every minute
-        $schedule->command('users:auto:delete')->everyMinute();
+        // $schedule->command('users:auto:delete')->everyMinute();
     }
 
 
@@ -27,8 +26,8 @@ class Kernel extends ConsoleKernel
         $this->load(__DIR__ . '/Commands');
 
         // Register your command
-        $this->commands([
-            AutoDeleteUsers::class,
-        ]);
+        // $this->commands([
+        //     AutoDeleteUsers::class,
+        // ]);
     }
 }
