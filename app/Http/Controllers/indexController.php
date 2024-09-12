@@ -141,29 +141,29 @@ class indexController extends Controller
             'password' => 'required'
         ]);
 
-        // pass the email and password into a variable to request just email and password
-        $credentials =  $request->only('email', 'password');
+        // // pass the email and password into a variable to request just email and password
+        // $credentials =  $request->only('email', 'password');
 
-        // try to get the user information from the database
-        $credentials['is_confirmed'] = true;
+        // // try to get the user information from the database
+        // $credentials['is_confirmed'] = true;
 
-        if (auth()->attempt($credentials)) {
+        // if (auth()->attempt($credentials)) {
 
-            if (auth()->user()->is_confirmed) {
+        //     if (auth()->user()->is_confirmed) {
 
-                // check if the user is authenticated and confirmed
-                return view('logout');
-            } else {
-                // user account is not confirmed, don't login and redirect back
-                auth()->logout();
+        //         // check if the user is authenticated and confirmed
+        //         return view('logout');
+        //     } else {
+        //         // user account is not confirmed, don't login and redirect back
+        //         auth()->logout();
 
-                return redirect()->back()->with('message', 'Your account is not yet confirmed.');
-            }
-        } else {
+        //         return redirect()->back()->with('message', 'Your account is not yet confirmed.');
+        //     }
+        // } else {
 
-            // authentication failed, redirect back with error message
-            return redirect()->back()->with('message', 'Invalid login credentials.');
-        }
+        //     // authentication failed, redirect back with error message
+        //     return redirect()->back()->with('message', 'Invalid login credentials.');
+        // }
     }
 
     // to logout 
